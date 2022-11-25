@@ -7,6 +7,7 @@ import re
 import string
 
 
+
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
@@ -61,7 +62,7 @@ def tokenize_text(text: str) -> list[str]:
 
     stop_words = set(
         stopwords.words('english') +
-        ['abc', 'abcd', 'abcdf', 'xyz','abcg','subjective','history','exam']
+        ['abc', 'abcd', 'abcdf', 'xyz','abcg','subjective','history','exam','year']
         ) 
     tokens = list(filter(
         lambda x: 
