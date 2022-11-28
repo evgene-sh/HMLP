@@ -2,6 +2,7 @@ from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import seaborn as sns
+from numpy import ndarray
 
 
 def learning_results(real_data, predicted_data, labels: list[str]):
@@ -22,11 +23,11 @@ def learning_results(real_data, predicted_data, labels: list[str]):
     print(classification_report(real_data, predicted_data, labels=labels, zero_division=0))
 
 
-def vectorization_results(matrix, labels):
+def vectorization_results(matrix: ndarray, labels: list[str]):
     tsne_results = TSNE(n_components=2, init='random', random_state=0, learning_rate=200.0).fit_transform(matrix)
 
     plt.figure(figsize=(16,10))
-    palette = sns.hls_palette(17, l=.6, s=.9)
+    palette = sns.hls_palette(len(set(labels)), l=.6, s=.9)
     sns.scatterplot(
         x=tsne_results[:,0], 
         y=tsne_results[:,1],

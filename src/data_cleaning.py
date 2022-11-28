@@ -5,12 +5,15 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import re
 import string
+import en_ner_bionlp13cg_md
 
 
 nltk.download('punkt');
 nltk.download('wordnet');
 nltk.download('omw-1.4');
 nltk.download('stopwords');
+
+BIO_NLP = en_ner_bionlp13cg_md.load()
 
 
 def count_sentences(texts: list[str]) -> int:
@@ -72,3 +75,10 @@ def tokenize_text(text: str) -> list[str]:
         tokens))
     
     return tokens
+
+
+def spacy_clean(text: str) -> str:
+    doc = BIO_NLP(text)
+    wordlist = (ent.text for ent in doc.ents)
+
+    return ' '.join(wordlist)  
