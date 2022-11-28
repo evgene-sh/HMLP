@@ -7,10 +7,10 @@ import re
 import string
 
 
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('stopwords')
+nltk.download('punkt');
+nltk.download('wordnet');
+nltk.download('omw-1.4');
+nltk.download('stopwords');
 
 
 def count_sentences(texts: list[str]) -> int:
