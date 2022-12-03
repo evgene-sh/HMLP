@@ -39,7 +39,7 @@ def count_words(texts: list[str]) -> int:
 def clean_text(text: str) -> str:
     text = text.lower()
     removal_list = ["summary of clinical history", "chief complaint", "reason for consultation",
-                    "history of present illness"]
+                    "history of present illness", "reason for visit","admission diagnoses"]
 
     for word_reading in removal_list:
         text = text.replace(word_reading, "")
@@ -64,7 +64,8 @@ def tokenize_text(text: str) -> list[str]:
 
     stop_words = set(
         stopwords.words('english') +
-        ['abc', 'abcd', 'abcdf', 'xyz','abcg','subjective','history','exam']
+        ['abc', 'abcd', 'abcdf', 'xyz','abcg','subjective','history','exam', 'year',
+         'yesterday','week','today','wife','protocol']
         ) 
     tokens = list(filter(
         lambda x: 
