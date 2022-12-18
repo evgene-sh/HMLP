@@ -4,7 +4,7 @@
 
 # Medical transcriptions classification
 
-## About
+## About project
 In this project, we have implemented a model to correctly classify the medical diagnosis based on the given medical transcriptions. The main goal is to correctly classify the medical specialties based on the transcription text and suggest our approach to solving this problem.
 
 ## Researchers
